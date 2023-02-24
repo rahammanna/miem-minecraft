@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    ports:
+      - 80:25565
+    environment:
+      SERVER_NAME: "MIEM-Vault-Hunters"
+      SERVER_PORT: "25565"
+      MEMORY: "4G"
+      EULA: "TRUE"
+      VERSION: "1.18.2"
+      # HARDCORE: "TRUE"
+      ONLINE_MODE: "FALSE"
+      ENABLE_WHITELIST: "FALSE"
+      OPS: "ANEME,Allorak"
+      PLAYER_IDLE_TIMEOUT: "60"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    volumes:
+      - ./minecraft-data:/data
